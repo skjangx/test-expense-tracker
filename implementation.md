@@ -15,7 +15,7 @@ This implementation plan outlines a pragmatic Test-Driven Development approach f
 - **Backend**: Supabase with Row Level Security
 - **State**: Zustand for client-side state management
 - **Forms**: React Hook Form with Zod validation
-- **Charts**: Tremor (Tailwind-optimized)
+- **Charts**: Recharts (React 19 compatible)
 - **Testing**: Jest (unit/integration), Playwright (E2E/visual)
 - **Deployment**: Vercel with GitHub Actions
 - **Development Tools**: MCP servers (GitHub, Vercel, Supabase, ShadCN, Playwright)
@@ -668,7 +668,7 @@ npx supabase stop    # Stop local database
     "zustand": "^4.4.0",
     "react-hook-form": "^7.48.0",
     "zod": "^3.22.0",
-    "@tremor/react": "^3.13.0"
+    "recharts": "^3.2.0"
   },
   "devDependencies": {
     "typescript": "^5.3.0",

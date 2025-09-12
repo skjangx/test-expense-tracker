@@ -20,7 +20,7 @@ This is a single-page expense tracking application built with Next.js 14+, TypeS
 - **Backend**: Supabase with Row Level Security (RLS)
 - **State Management**: Zustand
 - **Forms**: React Hook Form with Zod validation
-- **Charts**: Tremor (Tailwind-optimized charting library)
+- **Charts**: Recharts (React 19 compatible charting library)
 - **Testing**: Jest (unit/integration), Playwright (E2E/visual regression)
 - **Deployment**: Vercel with GitHub Actions CI/CD
 
@@ -81,7 +81,7 @@ npx supabase stop         # Stop local stack
 - **Transactions**: Amount stored as integers (Korean Won), supports income/expense types
 - **Categories**: Predefined system categories + user custom categories
 - **Goals**: Period-based spending goals (daily/weekly/monthly/yearly) with progress tracking
-- **Analytics**: Real-time spending insights with Tremor charts
+- **Analytics**: Real-time spending insights with Recharts
 
 **See prd.md for complete business rules:**
 - Transaction Management: US-011 to US-040 (lines 126-281)

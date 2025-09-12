@@ -14,7 +14,7 @@ A single-page expense tracking application that enables users to manage their in
 - **Frontend**: Next.js 14+ with TypeScript, deployed on Vercel
 - **Backend**: Supabase with Row Level Security (RLS)
 - **UI Framework**: ShadCN/UI components with Tailwind CSS
-- **Charts**: Tremor (Tailwind-optimized charting library)
+- **Charts**: Recharts (React 19 compatible charting library)
 - **State Management**: Zustand
 - **Forms**: React Hook Form with Zod validation
 - **Date Handling**: date-fns
@@ -566,7 +566,7 @@ A single-page expense tracking application that enables users to manage their in
 **⏳ US-096**: As a user, I want chart performance optimization so they load quickly with large datasets.
 - **AC**: Virtual scrolling for large datasets (>500 transactions)
 - **AC**: Lazy loading of historical data
-- **AC**: Efficient chart rendering with Tremor
+- **AC**: Efficient chart rendering with Recharts
 
 **⏳ US-097**: As a user, I want chart accessibility so I can use screen readers and keyboard navigation.
 - **AC**: ARIA labels for chart elements
@@ -962,7 +962,7 @@ A single-page expense tracking application that enables users to manage their in
 - **Styling**: Tailwind CSS with ShadCN components
 - **State Management**: Zustand for client-side state
 - **Forms**: React Hook Form with Zod validation
-- **Charts**: Tremor (Tailwind-optimized charting)
+- **Charts**: Recharts (React 19 compatible charting)
 - **Date Handling**: date-fns for date manipulation
 - **Testing**: Jest for unit/integration, Playwright for E2E/visual
 

@@ -10,7 +10,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   
   use: {
-    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
+    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3001',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure'
@@ -45,8 +45,8 @@ export default defineConfig({
 
   // Start local dev server before tests
   webServer: {
-    command: 'npm run dev',
-    port: 3000,
+    command: 'npm run dev -- --port 3001',
+    port: 3001,
     reuseExistingServer: !process.env.CI
   }
 })

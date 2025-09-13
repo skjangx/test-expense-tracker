@@ -44,11 +44,11 @@ npx supabase start  # Starts local Postgres, Auth, etc.
 # .env.local
 NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=local-anon-key
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3001
 
 # 3. Install dependencies
 npm install
-npm run dev  # Start Next.js on localhost:3000
+npm run dev  # Start Next.js on localhost:3001
 ```
 
 ### MCP Server Integration
@@ -325,7 +325,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   
   use: {
-    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
+    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3001',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure'
@@ -361,7 +361,7 @@ export default defineConfig({
   // Start local dev server before tests
   webServer: {
     command: 'npm run dev',
-    port: 3000,
+    port: 3001,
     reuseExistingServer: !process.env.CI
   }
 })
@@ -972,7 +972,7 @@ git push origin main      # Auto-deploy to Vercel
 # Local Development (.env.local)
 NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=local-anon-key
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3001
 
 # Production (Vercel auto-injects these)
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co

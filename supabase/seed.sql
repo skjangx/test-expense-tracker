@@ -2,6 +2,55 @@
 -- These are system-wide default categories available to all users
 -- user_id is NULL for default categories, users will copy/reference these
 
+-- Create test user for automated testing
+-- This user is used by Playwright visual regression tests
+DO $$
+BEGIN
+  -- Only create if not exists
+  IF NOT EXISTS (
+    SELECT 1 FROM auth.users WHERE email = 'test@expense-tracker.com'
+  ) THEN
+    -- Create test user with known credentials
+    INSERT INTO auth.users (
+      instance_id,
+      id,
+      aud,
+      role,
+      email,
+      encrypted_password,
+      email_confirmed_at,
+      recovery_sent_at,
+      last_sign_in_at,
+      raw_app_meta_data,
+      raw_user_meta_data,
+      created_at,
+      updated_at,
+      confirmation_token,
+      email_change,
+      email_change_token_new,
+      recovery_token
+    ) VALUES (
+      '00000000-0000-0000-0000-000000000000',
+      gen_random_uuid(),
+      'authenticated',
+      'authenticated',
+      'test@expense-tracker.com',
+      crypt('TestPassword123!', gen_salt('bf')),
+      NOW(),
+      NULL,
+      NULL,
+      '{"provider":"email","providers":["email"]}',
+      '{}',
+      NOW(),
+      NOW(),
+      '',
+      '',
+      '',
+      ''
+    );
+  END IF;
+END $$;
+
 -- Default Expense Categories
 INSERT INTO categories (user_id, name, type, color, is_default) VALUES
 (NULL, 'Food', 'expense', '#ef4444', true),              -- Red

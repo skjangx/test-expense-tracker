@@ -253,7 +253,7 @@ test('Button has correct CSS classes', () => {}) // Skip this
 # Local Development (.env.local)
 NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=local-anon-key
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3001
 
 # Production (managed by Vercel)
 # NEXT_PUBLIC_SUPABASE_URL=production-url

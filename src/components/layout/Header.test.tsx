@@ -48,7 +48,7 @@ describe('Header', () => {
       expect(screen.getByRole('button', { name: /sign out/i })).toBeInTheDocument()
     })
 
-    test('should call logout when sign out button is clicked', async () => {
+    test('should show confirmation dialog and call logout when confirmed', async () => {
       const mockLogout = jest.fn().mockResolvedValue(undefined)
       mockUseAuth.mockReturnValue({
         ...mockAuthSuccess,
@@ -57,11 +57,38 @@ describe('Header', () => {
       
       render(<Header />)
       
+      // Click the sign out button to open dialog
       fireEvent.click(screen.getByRole('button', { name: /sign out/i }))
+      
+      // Should show confirmation dialog
+      expect(screen.getByText('Sign out of your account?')).toBeInTheDocument()
+      expect(screen.getByText('You will need to sign in again to access your expense data.')).toBeInTheDocument()
+      
+      // Click confirm button in dialog
+      fireEvent.click(screen.getByRole('button', { name: 'Sign out' }))
       
       await waitFor(() => {
         expect(mockLogout).toHaveBeenCalled()
       })
+    })
+
+    test('should not call logout when dialog is cancelled', async () => {
+      const mockLogout = jest.fn().mockResolvedValue(undefined)
+      mockUseAuth.mockReturnValue({
+        ...mockAuthSuccess,
+        logout: mockLogout,
+      })
+      
+      render(<Header />)
+      
+      // Click the sign out button to open dialog
+      fireEvent.click(screen.getByRole('button', { name: /sign out/i }))
+      
+      // Click cancel button in dialog
+      fireEvent.click(screen.getByRole('button', { name: 'Cancel' }))
+      
+      // Logout should not be called
+      expect(mockLogout).not.toHaveBeenCalled()
     })
 
     test('should show loading state during logout', () => {

@@ -28,8 +28,13 @@ This is a single-page expense tracking application built with Next.js 14+, TypeS
 
 ### Development
 ```bash
+# Quality-First Development (REQUIRED)
+npm run dev:safe           # Runs all quality checks BEFORE starting dev server
+npm run quality            # Type-check + lint + test (run before any work)
+npm run tdd               # TDD mode: tests + type-check + dev in parallel
+
 # Start development (run these in separate terminals)
-npm run dev                 # Next.js dev server (port 3000)
+npm run dev                 # Next.js dev server (port 3001) - USE dev:safe INSTEAD
 npm run test:watch         # Jest in watch mode for TDD
 npx supabase start         # Local Supabase stack
 
@@ -40,10 +45,11 @@ npm run test:e2e          # E2E tests (Playwright)
 npm run test:visual       # Visual regression tests
 npm run test:all          # All tests
 
-# Code Quality
+# Code Quality (MANDATORY)
 npm run lint              # ESLint
 npm run type-check        # TypeScript compilation
 npm run build             # Production build
+./scripts/dev-check.sh    # Full development quality gate
 ```
 
 ### Database Management (MCP-Only Strategy)

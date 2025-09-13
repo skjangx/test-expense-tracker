@@ -25,14 +25,15 @@ A single-page expense tracking application that enables users to manage their in
 
 ### Quick Stats
 - **Total Stories**: 160
-- **Completed**: 0 ✅
-- **In Progress**: 0 🚧
-- **Not Started**: 160 ⏳
+- **Completed**: 2 ✅
+- **In Progress**: 6 🚧
+- **Not Started**: 152 ⏳
 
 ### Current Focus
-- **Active Stories**: None
-- **Next Up**: US-001 to US-010 (Authentication)
+- **Active Stories**: US-001 to US-010 (Authentication)
+- **Next Up**: US-011, US-012, US-018 (Basic Transactions)
 - **Blockers**: None
+- **Database**: ✅ Complete (3 tables, RLS policies, default categories seeded)
 
 ### Status Legend
 - ⏳ = Not Started
@@ -73,17 +74,17 @@ A single-page expense tracking application that enables users to manage their in
 
 ### Authentication (US-001 to US-010)
 
-**⏳ US-001**: As a user, I want to sign up with email and password so I can create my personal expense tracking account.
+**✅ US-001**: As a user, I want to sign up with email and password so I can create my personal expense tracking account.
 - **AC**: Email/password form with Supabase Auth
 - **AC**: No email confirmation required (configured in Supabase)
 - **AC**: Redirect to dashboard after successful signup
 
-**⏳ US-002**: As a user, I want to sign in with my credentials so I can access my expense data.
+**✅ US-002**: As a user, I want to sign in with my credentials so I can access my expense data.
 - **AC**: Email/password login form
 - **AC**: Remember me functionality
 - **AC**: Error messages for invalid credentials
 
-**⏳ US-003**: As a user, I want to sign out so I can secure my account.
+**🚧 US-003**: As a user, I want to sign out so I can secure my account.
 - **AC**: Sign out button in header
 - **AC**: Clear session and redirect to login
 - **AC**: Confirmation dialog before signing out
@@ -93,27 +94,27 @@ A single-page expense tracking application that enables users to manage their in
 - **AC**: Secure token-based reset flow
 - **AC**: Success confirmation after reset
 
-**⏳ US-005**: As a user, I want my session to persist so I don't have to log in repeatedly.
+**🚧 US-005**: As a user, I want my session to persist so I don't have to log in repeatedly.
 - **AC**: Session management with Supabase
 - **AC**: Auto-refresh tokens before expiry
 - **AC**: Graceful handling of expired sessions
 
-**⏳ US-006**: As a user, I want protected routes so unauthorized users cannot access my data.
+**🚧 US-006**: As a user, I want protected routes so unauthorized users cannot access my data.
 - **AC**: Route guards for authenticated pages
 - **AC**: Redirect to login if not authenticated
 - **AC**: Maintain intended destination after login
 
-**⏳ US-007**: As a user, I want my data to be private so only I can see my transactions.
+**🚧 US-007**: As a user, I want my data to be private so only I can see my transactions.
 - **AC**: Row Level Security (RLS) policies in Supabase
 - **AC**: User-specific data isolation
 - **AC**: Secure API endpoints
 
-**⏳ US-008**: As a user, I want error handling for auth failures so I understand what went wrong.
+**🚧 US-008**: As a user, I want error handling for auth failures so I understand what went wrong.
 - **AC**: Clear error messages for common scenarios
 - **AC**: Network error handling
 - **AC**: Rate limiting protection
 
-**⏳ US-009**: As a user, I want a loading state during authentication so I know the system is working.
+**🚧 US-009**: As a user, I want a loading state during authentication so I know the system is working.
 - **AC**: Loading spinners during auth operations
 - **AC**: Disable form submission while processing
 - **AC**: Skeleton loading for initial auth check
